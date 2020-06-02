@@ -1,4 +1,4 @@
-
+/*
 import {composeAPI} from '@iota/core'
 
 console.log("Connecting to IOTA devnet")
@@ -15,9 +15,9 @@ iota.getNodeInfo()
         console.log(`Request error: ${error.message}`)
     })
 
-let SEED = 'QDCJFJWRAXHRXASPADYUFZBIPYWETPRYVFRDTZGCKVXHUEIJOBTTZ9EJ9XHORFRHHZMIGYROMJULRDCHG'
-let ADDRESS = 'LGHIBEMMPMPLHW9MANWFFZFZCMTXDXRDMMMNHRTIRXCEIT9YABSAPMIFABMQYBY9EAWQCZ9KOYAIU9RICJBZQUYSCC'
-/*
+let SEED = 'EXTHD9BMZXMTOZTKEY9OVRAIFOHRBMHBRXPNMQWHCHCXBGVK9UGMDZQWTMLHXIIUJFSQIPLLHOBOIV9FX' //add seed2
+let ADDRESS = 'TKCPPH9IALHYGPFFHT9DRMFHRPFA9RQJOMAOQCHQVKWDJAKRQYNOTLNDJCYZKBWEQZDXXVYAEYBY9UVYXVHCAGOBAY'  //add address1 (send fro 2 to 1)
+
 let addresses = iota.getNewAddress(SEED, 
     {index:0, total:1, security:2, checksum:true, returnAll:false},
     (error, success)=>{
@@ -28,7 +28,7 @@ let addresses = iota.getNewAddress(SEED,
             console.log(success[0])
         }
     });
-*/
+
 
 function sendIOTA(seed, value, address){
     const transfers=[{
@@ -50,11 +50,11 @@ function sendIOTA(seed, value, address){
 }
 
 
-sendIOTA(SEED, 100, ADDRESS)
+sendIOTA(SEED, 1000, ADDRESS)
+
+*/
 
 
-
-/*
 import HMKit from 'hmkit'
 import { composeAPI } from '@iota/core'
 import { generateAddress } from '@iota/core'
@@ -72,11 +72,11 @@ const hmkit = new HMKit(
     "0mJFmZOxHTd1CFiZno0dCL6B7v6oEBz3LtJZ7v/SIUo="
 );
 
-const vehicleSeed = 'MMSGFR9QFAZXBUYQAJDHTMQRKOCSPFFA9YQZNRUUAMLZPFOOGMR9YRMCTGNVBTOMRN9VPOCKJWF9OI9XE'
+const vehicleSeed = 'EXTHD9BMZXMTOZTKEY9OVRAIFOHRBMHBRXPNMQWHCHCXBGVK9UGMDZQWTMLHXIIUJFSQIPLLHOBOIV9FX'
 
 const accessTokenVehicle = 'a950af84-fb4e-4d9d-8c82-c59672190aa6'
 
-const chargerSeed = 'QDCJFJWRAXHRXASPADYUFZBIPYWETPRYVFRDTZGCKVXHUEIJOBTTZ9EJ9XHORFRHHZMIGYROMJULRDCHG'
+const chargerSeed = 'FRBAAFDHWNTDNXLBXGTSJOYNAYCGC9BVWVLCMEAVVMNTSCBALJVENHZDIBCVLRPRTJTPVMWRKXWLZMMZL'
 
 const accessTokenCharger = 'd9f5727c-e972-414e-8d60-35396b99c145'
 
@@ -139,7 +139,7 @@ class HMCharger {
       try{
         let initialBalance = this.balance
         var currentBalance = 0
-        for (var i=0; i<240; i++){
+        for (var i=0; i<4000; i++){
             currentBalance = await this.checkBalance()
 
             if(currentBalance>initialBalance){
@@ -207,4 +207,4 @@ function sendIOTA(seed, value, address){
         .catch(err => {console.log(err)})
 }
 // Run your app
-app()*/
+app()
